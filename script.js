@@ -47,9 +47,15 @@ function editEmail() {
 }
 
 const otpInputs = document.querySelectorAll(".otp-input");
+const otpError = document.getElementById("otpError");
 
 otpInputs.forEach((input, index) => {
     input.addEventListener("input", (e) => {
+        let value = e.target.value;
+
+        // Allow only numbers
+        e.target.value = value.replace(/\D/g, "");
+
         if (e.target.value && index < otpInputs.length - 1) {
             otpInputs[index + 1].focus();
         }
@@ -62,7 +68,7 @@ otpInputs.forEach((input, index) => {
     });
 });
 
-document.getElementById("confirmBtn").addEventListener("click", function() {
+document.getElementById("confirmBtn").addEventListener("click", function () {
     let otpValue = "";
     otpInputs.forEach(input => {
         otpValue += input.value;
@@ -77,14 +83,15 @@ document.getElementById("confirmBtn").addEventListener("click", function() {
             document.getElementById("userEmailDisplay").textContent = userName;
         }
     } else {
-        alert("Invalid OTP. Please try again.");
+        otpError.textContent = "Invalid OTP. Please try again.";
     }
 });
 
 
+
 document.getElementById("backbtn").addEventListener("click", function() {
     document.getElementById("page2").style.display = "none";
-    document.getElementById("page1").style.display = "block";
+    document.getElementById("myForm").style.display = "block";
 });
 
 function redirectToHome() {
