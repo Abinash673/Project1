@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Project 1</title>
+  </head>
+  <body>
+    <form id="myForm">
+      <div class="container" id="page1">
+        <div class="image">
+          <img src="Image 1.png" alt="Image 1" class="image1" />
+        </div>
+
+        <h2 class="title">OTP Verification</h2>
+        <p class="subtitle">
+          Enter email and phone number to send one-time password
+        </p>
+
+        <div class="input-container">
+          <label for="email">Email</label>
+          <input type="email" id="email" value="user@marmeto.com" required />
+          <img
+            src="Edit icon.png"
+            alt="Edit"
+            class="edit-icon"
+            onclick="editEmail()"
+          />
+          <span id="emailError" style="color: red; font-size: 12px"></span>
+        </div>
+
+        <div class="input-container">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" value="+91 " required />
+          <span id="phoneError" style="color: red; font-size: 12px"></span>
+        </div>
+
+        <button class="continue-btn" type="submit">Continue</button>
+      </div>
+    </form>
+
+    <div id="page2" style="display: none" class="otp-container">
+      <div class="back-arrow" id="backbtn">&#8592;</div>
+
+      <h2 class="title">Verification Code</h2>
+      <p class="subtitle">
+        We have sent the verification code to your email address
+      </p>
+
+      <div class="otp-input-container">
+        <input type="text" maxlength="1" class="otp-input" required />
+        <input type="text" maxlength="1" class="otp-input" required />
+        <input type="text" maxlength="1" class="otp-input" required />
+        <input type="text" maxlength="1" class="otp-input" required />
+      </div>
+
+      <button class="confirm-btn" id="confirmBtn">Confirm</button>
+    </div>
+
+    <div id="page3" style="display: none" class="last-container">
+      <div class="success-icon">
+        <img src="success.png" alt="Success" />
+      </div>
+
+      <h2>Hey <span id="userEmailDisplay">User</span>!</h2>
+      <p class="message">
+        Congratulations! You have been successfully authenticated
+      </p>
+
+      <button class="done-btn" onclick="redirectToHome()">Done</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
